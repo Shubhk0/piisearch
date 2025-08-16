@@ -1,0 +1,852 @@
+[
+  {
+    "id": 1,
+    "name": "Microsoft",
+    "domain": "microsoft.com",
+    "github_org": "microsoft",
+    "industry": "Technology",
+    "market_cap": "$3.0T",
+    "security_contacts": {
+      "primary": "https://www.microsoft.com/en-us/msrc",
+      "email": "secure@microsoft.com",
+      "bug_bounty": "https://www.microsoft.com/en-us/msrc/bounty"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-48 hours",
+    "disclosure_policy": "https://www.microsoft.com/en-us/msrc/cvd",
+    "notes": "Very responsive, excellent security team, comprehensive bug bounty program"
+  },
+  {
+    "id": 2,
+    "name": "Apple",
+    "domain": "apple.com",
+    "github_org": "apple",
+    "industry": "Technology",
+    "market_cap": "$3.5T",
+    "security_contacts": {
+      "primary": "https://support.apple.com/en-us/HT201220",
+      "email": "product-security@apple.com",
+      "bug_bounty": "https://developer.apple.com/security-bounty/"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://support.apple.com/en-us/HT201220",
+    "notes": "High-quality security program, selective bug bounty by invitation"
+  },
+  {
+    "id": 3,
+    "name": "Alphabet (Google)",
+    "domain": "google.com",
+    "github_org": "google",
+    "industry": "Technology",
+    "market_cap": "$2.1T",
+    "security_contacts": {
+      "primary": "https://bughunters.google.com/",
+      "email": "security@google.com",
+      "bug_bounty": "https://bughunters.google.com/"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://about.google/appsecurity/",
+    "notes": "Mature program, detailed guidelines, Google VRP pioneer"
+  },
+  {
+    "id": 4,
+    "name": "Amazon",
+    "domain": "amazon.com",
+    "github_org": "aws",
+    "industry": "E-commerce/Cloud",
+    "market_cap": "$1.6T",
+    "security_contacts": {
+      "primary": "https://aws.amazon.com/security/vulnerability-reporting/",
+      "email": "aws-security@amazon.com",
+      "bug_bounty": "https://bugbounty.aws/"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://aws.amazon.com/security/vulnerability-reporting/",
+    "notes": "Separate programs for AWS vs retail, very professional"
+  },
+  {
+    "id": 5,
+    "name": "Meta (Facebook)",
+    "domain": "meta.com",
+    "github_org": "facebook",
+    "industry": "Social Media",
+    "market_cap": "$1.3T",
+    "security_contacts": {
+      "primary": "https://www.facebook.com/whitehat",
+      "email": "security@fb.com",
+      "bug_bounty": "https://www.facebook.com/whitehat"
+    },
+    "has_bug_bounty": true,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.facebook.com/whitehat/policy",
+    "notes": "Well-established program, good communication, covers Instagram/WhatsApp"
+  },
+  {
+    "id": 6,
+    "name": "Tesla",
+    "domain": "tesla.com",
+    "github_org": "teslamotors",
+    "industry": "Automotive/Energy",
+    "market_cap": "$800B",
+    "security_contacts": {
+      "primary": "https://bugcrowd.com/tesla",
+      "email": "security@tesla.com",
+      "bug_bounty": "https://bugcrowd.com/tesla"
+    },
+    "has_bug_bounty": true,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.tesla.com/about/security",
+    "notes": "Active on Bugcrowd, covers vehicle security, innovative approach"
+  },
+  {
+    "id": 7,
+    "name": "NVIDIA",
+    "domain": "nvidia.com",
+    "github_org": "nvidia",
+    "industry": "Technology/AI",
+    "market_cap": "$3.2T",
+    "security_contacts": {
+      "primary": "https://www.nvidia.com/en-us/security/",
+      "email": "psirt@nvidia.com",
+      "bug_bounty": "https://hackerone.com/nvidia"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.nvidia.com/en-us/security/",
+    "notes": "Growing program, AI/GPU focus, professional team"
+  },
+  {
+    "id": 8,
+    "name": "Netflix",
+    "domain": "netflix.com",
+    "github_org": "netflix",
+    "industry": "Entertainment/Streaming",
+    "market_cap": "$200B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/netflix",
+      "email": "security@netflix.com",
+      "bug_bounty": "https://hackerone.com/netflix"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://help.netflix.com/legal/security",
+    "notes": "Excellent program, responsive team, open source contributor"
+  },
+  {
+    "id": 9,
+    "name": "Uber",
+    "domain": "uber.com",
+    "github_org": "uber",
+    "industry": "Transportation/Technology",
+    "market_cap": "$150B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/uber",
+      "email": "security-reports@uber.com",
+      "bug_bounty": "https://hackerone.com/uber"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-48 hours",
+    "disclosure_policy": "https://www.uber.com/us/en/about/security/",
+    "notes": "Pioneer in bug bounties, very responsive, comprehensive scope"
+  },
+  {
+    "id": 10,
+    "name": "Airbnb",
+    "domain": "airbnb.com",
+    "github_org": "airbnb",
+    "industry": "Hospitality/Technology",
+    "market_cap": "$80B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/airbnb",
+      "email": "security@airbnb.com",
+      "bug_bounty": "https://hackerone.com/airbnb"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.airbnb.com/help/article/2855",
+    "notes": "Active program, good payouts, responsive communication"
+  },
+  {
+    "id": 11,
+    "name": "GitHub",
+    "domain": "github.com",
+    "github_org": "github",
+    "industry": "Technology/DevOps",
+    "market_cap": "Part of Microsoft",
+    "security_contacts": {
+      "primary": "https://bounty.github.com/",
+      "email": "security@github.com",
+      "bug_bounty": "https://bounty.github.com/"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-48 hours",
+    "disclosure_policy": "https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor",
+    "notes": "Security-focused platform, excellent response times"
+  },
+  {
+    "id": 12,
+    "name": "Shopify",
+    "domain": "shopify.com",
+    "github_org": "shopify",
+    "industry": "E-commerce/Technology",
+    "market_cap": "$100B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/shopify",
+      "email": "security@shopify.com",
+      "bug_bounty": "https://hackerone.com/shopify"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://shopify.dev/docs/apps/store/security/vulnerability-disclosure",
+    "notes": "Active program, good for e-commerce security research"
+  },
+  {
+    "id": 13,
+    "name": "Spotify",
+    "domain": "spotify.com",
+    "github_org": "spotify",
+    "industry": "Entertainment/Streaming",
+    "market_cap": "$30B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/spotify",
+      "email": "security@spotify.com",
+      "bug_bounty": "https://hackerone.com/spotify"
+    },
+    "has_bug_bounty": true,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.spotify.com/us/legal/security-disclosure-policy/",
+    "notes": "Music platform focus, responsive team"
+  },
+  {
+    "id": 14,
+    "name": "Twitter (X)",
+    "domain": "x.com",
+    "github_org": "twitter",
+    "industry": "Social Media",
+    "market_cap": "$44B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/x",
+      "email": "security@twitter.com",
+      "bug_bounty": "https://hackerone.com/x"
+    },
+    "has_bug_bounty": true,
+    "response_time": "Variable",
+    "disclosure_policy": "https://help.twitter.com/en/rules-and-policies/twitter-security-policy",
+    "notes": "Program status varies, check current guidelines"
+  },
+  {
+    "id": 15,
+    "name": "PayPal",
+    "domain": "paypal.com",
+    "github_org": "paypal",
+    "industry": "Financial Services",
+    "market_cap": "$70B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/paypal",
+      "email": "security@paypal.com",
+      "bug_bounty": "https://hackerone.com/paypal"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.paypal.com/us/webapps/mpp/security-tools/reporting-security-issues",
+    "notes": "Financial security focus, comprehensive program"
+  },
+  {
+    "id": 16,
+    "name": "Salesforce",
+    "domain": "salesforce.com",
+    "github_org": "salesforce",
+    "industry": "Enterprise Software",
+    "market_cap": "$250B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/salesforce",
+      "email": "security@salesforce.com",
+      "bug_bounty": "https://hackerone.com/salesforce"
+    },
+    "has_bug_bounty": true,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.salesforce.com/company/legal/trust-and-compliance-documentation/",
+    "notes": "Enterprise focus, professional handling"
+  },
+  {
+    "id": 17,
+    "name": "Intel",
+    "domain": "intel.com",
+    "github_org": "intel",
+    "industry": "Technology/Semiconductors",
+    "market_cap": "$200B",
+    "security_contacts": {
+      "primary": "https://www.intel.com/content/www/us/en/security-center/security-advisory.html",
+      "email": "secure@intel.com",
+      "bug_bounty": "https://www.intel.com/content/www/us/en/security-center/bug-bounty-program.html"
+    },
+    "has_bug_bounty": true,
+    "response_time": "72-120 hours",
+    "disclosure_policy": "https://www.intel.com/content/www/us/en/security-center/vulnerability-handling-guidelines.html",
+    "notes": "Hardware security focus, coordinated disclosure process"
+  },
+  {
+    "id": 18,
+    "name": "AMD",
+    "domain": "amd.com",
+    "github_org": "amd",
+    "industry": "Technology/Semiconductors",
+    "market_cap": "$220B",
+    "security_contacts": {
+      "primary": "https://www.amd.com/en/corporate/product-security",
+      "email": "psirt@amd.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "72-120 hours",
+    "disclosure_policy": "https://www.amd.com/en/corporate/product-security/vulnerability-disclosure",
+    "notes": "Product security team, hardware focus"
+  },
+  {
+    "id": 19,
+    "name": "IBM",
+    "domain": "ibm.com",
+    "github_org": "ibm",
+    "industry": "Technology/Enterprise",
+    "market_cap": "$180B",
+    "security_contacts": {
+      "primary": "https://www.ibm.com/trust/security-psirt",
+      "email": "psirt@us.ibm.com",
+      "bug_bounty": "https://hackerone.com/ibm"
+    },
+    "has_bug_bounty": true,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.ibm.com/trust/security-psirt",
+    "notes": "Enterprise focus, PSIRT team, formal processes"
+  },
+  {
+    "id": 20,
+    "name": "Oracle",
+    "domain": "oracle.com",
+    "github_org": "oracle",
+    "industry": "Technology/Database",
+    "market_cap": "$400B",
+    "security_contacts": {
+      "primary": "https://www.oracle.com/corporate/security-practices/",
+      "email": "secalert_us@oracle.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "96-168 hours",
+    "disclosure_policy": "https://www.oracle.com/corporate/security-practices/vulnerability-disclosure/",
+    "notes": "Formal process, quarterly security updates"
+  },
+  {
+    "id": 21,
+    "name": "Cisco",
+    "domain": "cisco.com",
+    "github_org": "cisco",
+    "industry": "Technology/Networking",
+    "market_cap": "$200B",
+    "security_contacts": {
+      "primary": "https://www.cisco.com/c/en/us/about/security-center/security-vulnerability-policy.html",
+      "email": "psirt@cisco.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.cisco.com/c/en/us/about/security-center/security-vulnerability-policy.html",
+    "notes": "PSIRT team, network security focus"
+  },
+  {
+    "id": 22,
+    "name": "VMware",
+    "domain": "vmware.com",
+    "github_org": "vmware",
+    "industry": "Technology/Virtualization",
+    "market_cap": "Part of Broadcom",
+    "security_contacts": {
+      "primary": "https://www.vmware.com/security/advisories.html",
+      "email": "security@vmware.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "72-120 hours",
+    "disclosure_policy": "https://www.vmware.com/help/security.html",
+    "notes": "Virtualization security, formal disclosure process"
+  },
+  {
+    "id": 23,
+    "name": "Adobe",
+    "domain": "adobe.com",
+    "github_org": "adobe",
+    "industry": "Technology/Creative Software",
+    "market_cap": "$230B",
+    "security_contacts": {
+      "primary": "https://helpx.adobe.com/security.html",
+      "email": "psirt@adobe.com",
+      "bug_bounty": "https://hackerone.com/adobe"
+    },
+    "has_bug_bounty": true,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://helpx.adobe.com/security/acknowledgments.html",
+    "notes": "Creative software focus, active program"
+  },
+  {
+    "id": 24,
+    "name": "Atlassian",
+    "domain": "atlassian.com",
+    "github_org": "atlassian",
+    "industry": "Technology/Collaboration",
+    "market_cap": "$50B",
+    "security_contacts": {
+      "primary": "https://www.atlassian.com/trust/security",
+      "email": "security@atlassian.com",
+      "bug_bounty": "https://bugcrowd.com/atlassian"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.atlassian.com/trust/security/security-vulnerability-policy",
+    "notes": "Developer tools focus, responsive team"
+  },
+  {
+    "id": 25,
+    "name": "Slack",
+    "domain": "slack.com",
+    "github_org": "slackhq",
+    "industry": "Technology/Communication",
+    "market_cap": "Part of Salesforce",
+    "security_contacts": {
+      "primary": "https://hackerone.com/slack",
+      "email": "security@slack.com",
+      "bug_bounty": "https://hackerone.com/slack"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-48 hours",
+    "disclosure_policy": "https://slack.com/security-vulnerability-reporting",
+    "notes": "Communication platform focus, quick response"
+  },
+  {
+    "id": 26,
+    "name": "Zoom",
+    "domain": "zoom.us",
+    "github_org": "zoom",
+    "industry": "Technology/Communication",
+    "market_cap": "$25B",
+    "security_contacts": {
+      "primary": "https://explore.zoom.us/en/trust/security/",
+      "email": "security@zoom.us",
+      "bug_bounty": "https://bugcrowd.com/zoom"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://explore.zoom.us/en/trust/security/security-bulletin/",
+    "notes": "Video communication focus, security-conscious"
+  },
+  {
+    "id": 27,
+    "name": "Dropbox",
+    "domain": "dropbox.com",
+    "github_org": "dropbox",
+    "industry": "Technology/Cloud Storage",
+    "market_cap": "$10B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/dropbox",
+      "email": "security@dropbox.com",
+      "bug_bounty": "https://hackerone.com/dropbox"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.dropbox.com/transparency/reports",
+    "notes": "Cloud storage focus, established program"
+  },
+  {
+    "id": 28,
+    "name": "Square (Block)",
+    "domain": "squareup.com",
+    "github_org": "square",
+    "industry": "Financial Technology",
+    "market_cap": "$40B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/square",
+      "email": "security@squareup.com",
+      "bug_bounty": "https://hackerone.com/square"
+    },
+    "has_bug_bounty": true,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://squareup.com/us/en/legal/general/security",
+    "notes": "FinTech focus, payment security expertise"
+  },
+  {
+    "id": 29,
+    "name": "Stripe",
+    "domain": "stripe.com",
+    "github_org": "stripe",
+    "industry": "Financial Technology",
+    "market_cap": "$95B",
+    "security_contacts": {
+      "primary": "https://stripe.com/docs/security",
+      "email": "security@stripe.com",
+      "bug_bounty": "https://hackerone.com/stripe"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-48 hours",
+    "disclosure_policy": "https://stripe.com/docs/security#reporting-vulnerabilities",
+    "notes": "Payment processing focus, excellent security team"
+  },
+  {
+    "id": 30,
+    "name": "Twilio",
+    "domain": "twilio.com",
+    "github_org": "twilio",
+    "industry": "Technology/Communication APIs",
+    "market_cap": "$15B",
+    "security_contacts": {
+      "primary": "https://www.twilio.com/security",
+      "email": "security@twilio.com",
+      "bug_bounty": "https://bugcrowd.com/twilio"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.twilio.com/security#vulnerability-disclosure",
+    "notes": "API platform focus, developer-friendly"
+  },
+  {
+    "id": 31,
+    "name": "MongoDB",
+    "domain": "mongodb.com",
+    "github_org": "mongodb",
+    "industry": "Technology/Database",
+    "market_cap": "$25B",
+    "security_contacts": {
+      "primary": "https://www.mongodb.com/security",
+      "email": "security@mongodb.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.mongodb.com/docs/manual/security/",
+    "notes": "Database focus, security documentation available"
+  },
+  {
+    "id": 32,
+    "name": "Redis",
+    "domain": "redis.io",
+    "github_org": "redis",
+    "industry": "Technology/Database",
+    "market_cap": "Private",
+    "security_contacts": {
+      "primary": "https://redis.io/security/",
+      "email": "security@redis.io",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://redis.io/security/",
+    "notes": "In-memory database focus, open source heritage"
+  },
+  {
+    "id": 33,
+    "name": "Docker",
+    "domain": "docker.com",
+    "github_org": "docker",
+    "industry": "Technology/Containerization",
+    "market_cap": "Private",
+    "security_contacts": {
+      "primary": "https://www.docker.com/security/",
+      "email": "security@docker.com",
+      "bug_bounty": "https://hackerone.com/docker"
+    },
+    "has_bug_bounty": true,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.docker.com/security-vulnerability-reporting/",
+    "notes": "Container security focus, infrastructure focus"
+  },
+  {
+    "id": 34,
+    "name": "HashiCorp",
+    "domain": "hashicorp.com",
+    "github_org": "hashicorp",
+    "industry": "Technology/Infrastructure",
+    "market_cap": "$15B",
+    "security_contacts": {
+      "primary": "https://www.hashicorp.com/security",
+      "email": "security@hashicorp.com",
+      "bug_bounty": "https://bugcrowd.com/hashicorp"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.hashicorp.com/security#vulnerability-reporting",
+    "notes": "Infrastructure security tools, DevOps focus"
+  },
+  {
+    "id": 35,
+    "name": "Cloudflare",
+    "domain": "cloudflare.com",
+    "github_org": "cloudflare",
+    "industry": "Technology/CDN Security",
+    "market_cap": "$25B",
+    "security_contacts": {
+      "primary": "https://www.cloudflare.com/security/",
+      "email": "security@cloudflare.com",
+      "bug_bounty": "https://hackerone.com/cloudflare"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-48 hours",
+    "disclosure_policy": "https://www.cloudflare.com/security-policy/",
+    "notes": "Security-focused company, excellent response times"
+  },
+  {
+    "id": 36,
+    "name": "Elastic",
+    "domain": "elastic.co",
+    "github_org": "elastic",
+    "industry": "Technology/Search & Analytics",
+    "market_cap": "$8B",
+    "security_contacts": {
+      "primary": "https://www.elastic.co/community/security",
+      "email": "security@elastic.co",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.elastic.co/community/security",
+    "notes": "Search and analytics focus, open source background"
+  },
+  {
+    "id": 37,
+    "name": "GitLab",
+    "domain": "gitlab.com",
+    "github_org": "gitlab-org",
+    "industry": "Technology/DevOps",
+    "market_cap": "$8B",
+    "security_contacts": {
+      "primary": "https://hackerone.com/gitlab",
+      "email": "security@gitlab.com",
+      "bug_bounty": "https://hackerone.com/gitlab"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://about.gitlab.com/security/disclosure/",
+    "notes": "DevOps platform, competitive with GitHub"
+  },
+  {
+    "id": 38,
+    "name": "JetBrains",
+    "domain": "jetbrains.com",
+    "github_org": "jetbrains",
+    "industry": "Technology/Developer Tools",
+    "market_cap": "Private",
+    "security_contacts": {
+      "primary": "https://www.jetbrains.com/legal/security.html",
+      "email": "security@jetbrains.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.jetbrains.com/legal/security.html",
+    "notes": "Developer IDE focus, professional development tools"
+  },
+  {
+    "id": 39,
+    "name": "Postman",
+    "domain": "postman.com",
+    "github_org": "postmanlabs",
+    "industry": "Technology/API Tools",
+    "market_cap": "Private",
+    "security_contacts": {
+      "primary": "https://www.postman.com/security/",
+      "email": "security@postman.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.postman.com/security-vulnerability-reporting/",
+    "notes": "API development platform, growing user base"
+  },
+  {
+    "id": 40,
+    "name": "Okta",
+    "domain": "okta.com",
+    "github_org": "okta",
+    "industry": "Technology/Identity Management",
+    "market_cap": "$15B",
+    "security_contacts": {
+      "primary": "https://www.okta.com/security/",
+      "email": "security@okta.com",
+      "bug_bounty": "https://bugcrowd.com/okta"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.okta.com/vulnerability-reporting-policy/",
+    "notes": "Identity security focus, enterprise customers"
+  },
+  {
+    "id": 41,
+    "name": "Auth0",
+    "domain": "auth0.com",
+    "github_org": "auth0",
+    "industry": "Technology/Identity Management",
+    "market_cap": "Part of Okta",
+    "security_contacts": {
+      "primary": "https://auth0.com/security",
+      "email": "security@auth0.com",
+      "bug_bounty": "https://bugcrowd.com/auth0"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://auth0.com/security/vulnerability-reporting",
+    "notes": "Identity platform, developer-focused"
+  },
+  {
+    "id": 42,
+    "name": "Datadog",
+    "domain": "datadoghq.com",
+    "github_org": "datadog",
+    "industry": "Technology/Monitoring",
+    "market_cap": "$40B",
+    "security_contacts": {
+      "primary": "https://www.datadoghq.com/security/",
+      "email": "security@datadoghq.com",
+      "bug_bounty": "https://hackerone.com/datadog"
+    },
+    "has_bug_bounty": true,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.datadoghq.com/security/vulnerability-management/",
+    "notes": "Monitoring and observability focus"
+  },
+  {
+    "id": 43,
+    "name": "PagerDuty",
+    "domain": "pagerduty.com",
+    "github_org": "pagerduty",
+    "industry": "Technology/Incident Management",
+    "market_cap": "$3B",
+    "security_contacts": {
+      "primary": "https://www.pagerduty.com/security/",
+      "email": "security@pagerduty.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.pagerduty.com/security/vulnerability-management/",
+    "notes": "Incident response platform, ops-focused"
+  },
+  {
+    "id": 44,
+    "name": "Splunk",
+    "domain": "splunk.com",
+    "github_org": "splunk",
+    "industry": "Technology/Security Analytics",
+    "market_cap": "$20B",
+    "security_contacts": {
+      "primary": "https://www.splunk.com/en_us/product-security.html",
+      "email": "prodsec@splunk.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.splunk.com/en_us/product-security/vulnerability-disclosure.html",
+    "notes": "Security analytics focus, enterprise customers"
+  },
+  {
+    "id": 45,
+    "name": "CrowdStrike",
+    "domain": "crowdstrike.com",
+    "github_org": "crowdstrike",
+    "industry": "Technology/Cybersecurity",
+    "market_cap": "$80B",
+    "security_contacts": {
+      "primary": "https://www.crowdstrike.com/resources/trust/security/",
+      "email": "security@crowdstrike.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "24-72 hours",
+    "disclosure_policy": "https://www.crowdstrike.com/resources/trust/security/vulnerability-reporting/",
+    "notes": "Cybersecurity company, endpoint protection focus"
+  },
+  {
+    "id": 46,
+    "name": "Palo Alto Networks",
+    "domain": "paloaltonetworks.com",
+    "github_org": "paloaltonetworks",
+    "industry": "Technology/Cybersecurity",
+    "market_cap": "$100B",
+    "security_contacts": {
+      "primary": "https://security.paloaltonetworks.com/",
+      "email": "psirt@paloaltonetworks.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://security.paloaltonetworks.com/vulnerability-disclosure-policy",
+    "notes": "Network security focus, enterprise firewalls"
+  },
+  {
+    "id": 47,
+    "name": "Fortinet",
+    "domain": "fortinet.com",
+    "github_org": "fortinet",
+    "industry": "Technology/Cybersecurity",
+    "market_cap": "$50B",
+    "security_contacts": {
+      "primary": "https://www.fortinet.com/support/product-security",
+      "email": "psirt@fortinet.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "72-120 hours",
+    "disclosure_policy": "https://www.fortinet.com/support/product-security",
+    "notes": "Network security appliances, FortiGate focus"
+  },
+  {
+    "id": 48,
+    "name": "Check Point",
+    "domain": "checkpoint.com",
+    "github_org": "checkpointsw",
+    "industry": "Technology/Cybersecurity",
+    "market_cap": "$20B",
+    "security_contacts": {
+      "primary": "https://www.checkpoint.com/support/product-security-incident-response-team/",
+      "email": "cpirt@checkpoint.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "72-120 hours",
+    "disclosure_policy": "https://www.checkpoint.com/support/product-security-incident-response-team/",
+    "notes": "Enterprise security solutions, firewall focus"
+  },
+  {
+    "id": 49,
+    "name": "Zscaler",
+    "domain": "zscaler.com",
+    "github_org": "zscaler",
+    "industry": "Technology/Cloud Security",
+    "market_cap": "$30B",
+    "security_contacts": {
+      "primary": "https://www.zscaler.com/company/security",
+      "email": "security@zscaler.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.zscaler.com/company/security/vulnerability-disclosure",
+    "notes": "Cloud security platform, zero trust focus"
+  },
+  {
+    "id": 50,
+    "name": "Rapid7",
+    "domain": "rapid7.com",
+    "github_org": "rapid7",
+    "industry": "Technology/Security Analytics",
+    "market_cap": "$5B",
+    "security_contacts": {
+      "primary": "https://www.rapid7.com/disclosure/",
+      "email": "security@rapid7.com",
+      "bug_bounty": "Limited program"
+    },
+    "has_bug_bounty": false,
+    "response_time": "48-96 hours",
+    "disclosure_policy": "https://www.rapid7.com/disclosure/",
+    "notes": "Vulnerability management, penetration testing tools"
+  }
+]

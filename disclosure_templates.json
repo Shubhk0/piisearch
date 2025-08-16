@@ -1,0 +1,196 @@
+{
+  "disclosure_templates": {
+    "initial_disclosure": {
+      "subject": "Security Vulnerability Report - {organization} Repository PII Exposure",
+      "template": "Dear {organization} Security Team,\n\nI hope this message finds you well. I am writing to report a security vulnerability I discovered in one of your public GitHub repositories that may expose personally identifiable information (PII) and sensitive data.\n\n**EXECUTIVE SUMMARY:**\nWhile conducting security research on public repositories, I identified potential PII exposure in the {repository_name} repository. This includes {pii_types} that could pose privacy and security risks if exploited by malicious actors.\n\n**AFFECTED SYSTEM:**\n- Repository: {repository_url}\n- Organization: {organization}\n- Discovery Date: {discovery_date}\n- Severity: {severity_level}\n\n**VULNERABILITY DETAILS:**\n{detailed_findings}\n\n**POTENTIAL IMPACT:**\n- Privacy violation of individuals whose information is exposed\n- Potential identity theft or fraud risks\n- Regulatory compliance implications (GDPR, CCPA, etc.)\n- Reputational damage to the organization\n\n**RECOMMENDED REMEDIATION:**\n1. Remove sensitive data from the repository immediately\n2. Use git filter-repo or similar tools to purge data from commit history\n3. Rotate any exposed credentials or API keys\n4. Implement pre-commit hooks to prevent future PII commits\n5. Review repository access controls and permissions\n\n**DISCLOSURE TIMELINE:**\nFollowing responsible disclosure practices, I intend to:\n- Allow 90 days for remediation before considering public disclosure\n- Provide assistance if needed to verify the fix\n- Coordinate disclosure timing at your preference once resolved\n\n**CONTACT INFORMATION:**\nI can be reached at {researcher_email} for any questions or clarifications. I am committed to working with your team to resolve this issue promptly and responsibly.\n\nThank you for your attention to this matter. I look forward to your response within 5 business days to acknowledge receipt of this report.\n\nBest regards,\n{researcher_name}\nSecurity Researcher\n\n**DISCLAIMER:** This report is provided in good faith for security improvement purposes. No unauthorized access to systems or data was performed beyond what was necessary to identify the vulnerability."
+    },
+    "followup_reminder": {
+      "subject": "Follow-up: Security Vulnerability Report #{reference_id}",
+      "template": "Dear {organization} Security Team,\n\nI hope this message finds you well. I am following up on the security vulnerability report I submitted on {initial_date} regarding PII exposure in your {repository_name} repository.\n\n**REFERENCE INFORMATION:**\n- Report ID: #{reference_id}\n- Initial Report Date: {initial_date}\n- Repository: {repository_url}\n- Severity: {severity_level}\n\n**STATUS UPDATE:**\nAs of today ({current_date}), it has been {days_elapsed} days since my initial report. According to my disclosure timeline, I wanted to provide a status update and inquire about the remediation progress.\n\n**TIMELINE REMINDER:**\n- Day 0: Initial disclosure ({initial_date})\n- Day 30: First follow-up (today)\n- Day 60: Escalation and coordination discussions\n- Day 90: Potential public disclosure if unresolved\n\n**REQUEST:**\nCould you please provide an update on:\n1. Confirmation that the vulnerability has been received and is being investigated\n2. Expected timeline for remediation\n3. Any additional information needed from my end\n4. Preferred communication channel for ongoing coordination\n\nI remain committed to working with your team to resolve this issue responsibly. Please let me know how I can assist in the remediation process.\n\nLooking forward to your response within 5 business days.\n\nBest regards,\n{researcher_name}\nSecurity Researcher"
+    },
+    "public_disclosure": {
+      "subject": "Security Advisory: PII Exposure in {organization} Repository - CVE-{cve_id}",
+      "template": "**SECURITY ADVISORY**\n\n**CVE ID:** CVE-{cve_id}\n**Advisory ID:** {advisory_id}\n**Publication Date:** {publication_date}\n**Severity:** {severity_level}\n\n**SUMMARY:**\nA security vulnerability was discovered in {organization}'s {repository_name} repository that resulted in the exposure of personally identifiable information (PII) including {pii_types}.\n\n**AFFECTED SYSTEMS:**\n- Repository: {repository_url}\n- Organization: {organization}\n- Discovery Date: {discovery_date}\n\n**VULNERABILITY DETAILS:**\n{technical_details}\n\n**TIMELINE:**\n- {discovery_date}: Vulnerability discovered\n- {initial_disclosure}: Initial disclosure to {organization}\n- {followup_dates}: Follow-up communications\n- {resolution_date}: Issue resolved by vendor\n- {publication_date}: Public disclosure\n\n**VENDOR RESPONSE:**\n{vendor_response_summary}\n\n**MITIGATION:**\n{mitigation_steps}\n\n**CREDIT:**\nThis vulnerability was discovered by {researcher_name} during security research activities.\n\n**REFERENCES:**\n- Original repository: {repository_url}\n- Vendor security advisory: {vendor_advisory_url}\n- CVE Details: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-{cve_id}\n\n**DISCLAIMER:**\nThis advisory is provided for informational purposes to help organizations improve their security posture. All testing was conducted ethically and in accordance with responsible disclosure practices."
+    }
+  },
+  "contact_discovery": {
+    "automated_methods": [
+      {
+        "method": "security.txt",
+        "url_pattern": "https://{domain}/.well-known/security.txt",
+        "description": "Standard security contact information file",
+        "priority": 1,
+        "example": "https://github.com/.well-known/security.txt"
+      },
+      {
+        "method": "GitHub Security Policy",
+        "url_pattern": "https://github.com/{org}/security/policy",
+        "description": "Organization-specific security policy and contact",
+        "priority": 2,
+        "example": "https://github.com/microsoft/security/policy"
+      },
+      {
+        "method": "HackerOne Program",
+        "url_pattern": "https://hackerone.com/{company}",
+        "description": "Bug bounty program with managed disclosure",
+        "priority": 3,
+        "example": "https://hackerone.com/github"
+      },
+      {
+        "method": "Bugcrowd Program",
+        "url_pattern": "https://bugcrowd.com/programs/{company}",
+        "description": "Bug bounty platform for coordinated disclosure",
+        "priority": 3,
+        "example": "https://bugcrowd.com/programs/tesla"
+      }
+    ],
+    "manual_methods": [
+      {
+        "method": "Corporate Website",
+        "search_terms": [
+          "security contact",
+          "vulnerability disclosure",
+          "responsible disclosure",
+          "security team"
+        ],
+        "description": "Search company website for security-related pages",
+        "priority": 4
+      },
+      {
+        "method": "LinkedIn Research",
+        "search_terms": [
+          "CISO",
+          "Security Engineer",
+          "InfoSec",
+          "Cybersecurity"
+        ],
+        "description": "Find security team members on professional networks",
+        "priority": 5
+      },
+      {
+        "method": "Email Pattern Discovery",
+        "patterns": [
+          "security@{domain}",
+          "vulnerability@{domain}",
+          "disclosure@{domain}",
+          "infosec@{domain}"
+        ],
+        "description": "Try common security email patterns",
+        "priority": 6
+      }
+    ]
+  },
+  "organization_profiles": {
+    "tech_giants": [
+      {
+        "name": "Microsoft",
+        "domain": "microsoft.com",
+        "github_org": "microsoft",
+        "security_contact": "https://www.microsoft.com/en-us/msrc",
+        "bounty_program": "https://www.microsoft.com/en-us/msrc/bounty",
+        "response_time": "24-48 hours",
+        "notes": "Very responsive, excellent security team"
+      },
+      {
+        "name": "Google",
+        "domain": "google.com",
+        "github_org": "google",
+        "security_contact": "security@google.com",
+        "bounty_program": "https://bughunters.google.com/",
+        "response_time": "24-72 hours",
+        "notes": "Mature program, detailed guidelines"
+      },
+      {
+        "name": "Meta (Facebook)",
+        "domain": "facebook.com",
+        "github_org": "facebook",
+        "security_contact": "https://www.facebook.com/whitehat",
+        "bounty_program": "https://www.facebook.com/whitehat",
+        "response_time": "48-96 hours",
+        "notes": "Well-established program, good communication"
+      },
+      {
+        "name": "Amazon",
+        "domain": "amazon.com",
+        "github_org": "aws",
+        "security_contact": "https://aws.amazon.com/security/vulnerability-reporting/",
+        "bounty_program": "https://bugbounty.aws/",
+        "response_time": "24-72 hours",
+        "notes": "Separate programs for AWS vs retail"
+      }
+    ]
+  },
+  "disclosure_timeline": {
+    "standard_timeline": {
+      "day_0": {
+        "action": "Initial Disclosure",
+        "description": "Send detailed vulnerability report to security contact",
+        "deliverables": [
+          "Vulnerability report",
+          "Evidence/screenshots",
+          "Remediation suggestions"
+        ]
+      },
+      "day_5": {
+        "action": "Acknowledgment Expected",
+        "description": "Organization should acknowledge receipt of report",
+        "deliverables": [
+          "Acknowledgment email",
+          "Tracking number/ID",
+          "Initial assessment"
+        ]
+      },
+      "day_30": {
+        "action": "First Follow-up",
+        "description": "Check on progress if no updates received",
+        "deliverables": [
+          "Status update request",
+          "Timeline clarification"
+        ]
+      },
+      "day_60": {
+        "action": "Escalation Point",
+        "description": "Consider escalation if no meaningful progress",
+        "deliverables": [
+          "Escalation notice",
+          "Final remediation deadline"
+        ]
+      },
+      "day_90": {
+        "action": "Public Disclosure Decision",
+        "description": "Coordinate public disclosure or extend timeline",
+        "deliverables": [
+          "Public advisory",
+          "CVE request",
+          "Technical details"
+        ]
+      }
+    }
+  },
+  "legal_guidelines": {
+    "good_faith_research": [
+      "Only access publicly available information",
+      "Do not modify, delete, or harm any data",
+      "Limit testing to minimum necessary to demonstrate issue",
+      "Respect privacy of individuals whose data may be exposed",
+      "Follow responsible disclosure timelines",
+      "Document all activities thoroughly"
+    ],
+    "documentation_requirements": [
+      "Screenshot evidence of findings",
+      "Detailed steps to reproduce",
+      "Communication logs with organization",
+      "Timeline of discovery and disclosure",
+      "Any remediation advice provided",
+      "Legal compliance verification"
+    ],
+    "compliance_considerations": {
+      "GDPR": "Consider data protection impact assessments",
+      "CCPA": "Respect individual privacy rights",
+      "HIPAA": "Extra caution with healthcare-related data",
+      "PCI DSS": "Immediate reporting for payment card data",
+      "SOX": "Financial data requires special handling"
+    }
+  },
+  "generated_date": "2025-08-16T08:36:22.348629"
+}

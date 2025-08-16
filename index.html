@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureDisclose - PII Exposure Discovery & Responsible Disclosure Platform</title>
+    <title>SecureDisclose - Professional Security Research Platform</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -13,13 +13,13 @@
         <nav class="nav">
             <div class="nav-brand">
                 <h1>🔒 SecureDisclose</h1>
-                <span class="nav-subtitle">Professional Security Research Platform by shubhk0</span>
+                <span class="nav-subtitle">Professional Security Research Platform</span>
             </div>
             <div class="nav-menu">
                 <button class="nav-item active" data-section="dashboard">Dashboard</button>
                 <button class="nav-item" data-section="discovery">Discovery</button>
+                <button class="nav-item" data-section="companies">Companies</button>
                 <button class="nav-item" data-section="findings">Findings</button>
-                <button class="nav-item" data-section="organizations">Organizations</button>
                 <button class="nav-item" data-section="reports">Reports</button>
                 <button class="nav-item" data-section="timeline">Timeline</button>
             </div>
@@ -31,7 +31,7 @@
             <section id="dashboard" class="content-section active">
                 <div class="section-header">
                     <h2>Research Dashboard</h2>
-                    <p class="section-description">Overview of your security research activities and responsible disclosure portfolio</p>
+                    <p class="section-description">Overview of your security research activities across Fortune 500 companies</p>
                 </div>
 
                 <!-- Quick Stats -->
@@ -46,15 +46,15 @@
                     <div class="stat-card">
                         <div class="stat-icon">🏢</div>
                         <div class="stat-content">
-                            <div class="stat-number" id="active-disclosures">0</div>
-                            <div class="stat-label">Active Disclosures</div>
+                            <div class="stat-number" id="companies-tracked">50</div>
+                            <div class="stat-label">Companies Tracked</div>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon">✅</div>
                         <div class="stat-content">
-                            <div class="stat-number" id="resolved-issues">0</div>
-                            <div class="stat-label">Resolved Issues</div>
+                            <div class="stat-number" id="active-disclosures">0</div>
+                            <div class="stat-label">Active Disclosures</div>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -75,9 +75,9 @@
                         </div>
                     </div>
                     <div class="chart-container">
-                        <h3>Disclosure Timeline Progress</h3>
+                        <h3>Industry Distribution</h3>
                         <div style="position: relative; height: 300px;">
-                            <canvas id="timeline-chart"></canvas>
+                            <canvas id="industry-chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -87,9 +87,9 @@
                     <h3>Recent Activity</h3>
                     <div id="activity-list" class="activity-list">
                         <div class="activity-item">
-                            <div class="activity-icon">🔍</div>
+                            <div class="activity-icon">🚀</div>
                             <div class="activity-content">
-                                <div class="activity-title">Platform ready for security research</div>
+                                <div class="activity-title">Platform ready with Top 50 companies database</div>
                                 <div class="activity-time">Just now</div>
                             </div>
                         </div>
@@ -100,47 +100,82 @@
             <!-- Discovery Section -->
             <section id="discovery" class="content-section">
                 <div class="section-header">
-                    <h2>PII Exposure Discovery</h2>
-                    <p class="section-description">Search for PII exposures in public repositories and document findings</p>
+                    <h2>PII Discovery Engine</h2>
+                    <p class="section-description">Intelligent PII scanning with company-specific configurations</p>
                 </div>
 
-                <!-- Search Controls -->
+                <!-- Quick Company Selection -->
                 <div class="card">
                     <div class="card__body">
-                        <h3>Organization & Repository Discovery</h3>
-                        <div class="search-grid">
-                            <div class="form-group">
-                                <label for="org-search" class="form-label">Organization Name</label>
-                                <input type="text" id="org-search" class="form-control" placeholder="e.g., microsoft, google, facebook">
+                        <h3>Select Target Companies</h3>
+                        <div class="company-selection">
+                            <div class="quick-select-grid">
+                                <button class="quick-company-btn" data-companies="tech-giants">Tech Giants</button>
+                                <button class="quick-company-btn" data-companies="financial">Financial Services</button>
+                                <button class="quick-company-btn" data-companies="bug-bounty">With Bug Bounties</button>
+                                <button class="quick-company-btn" data-companies="responsive">Fast Response</button>
                             </div>
+                            <div class="selected-companies" id="selected-companies">
+                                <span class="placeholder">No companies selected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scan Configuration -->
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Scan Configuration</h3>
+                        <div class="scan-config-grid">
                             <div class="form-group">
                                 <label for="scan-depth" class="form-label">Scan Depth</label>
                                 <select id="scan-depth" class="form-control">
-                                    <option value="quick">Quick (5 repos, 10 files each)</option>
-                                    <option value="thorough">Thorough (10 repos, 20 files each)</option>
-                                    <option value="comprehensive">Comprehensive (25 repos, 50 files each)</option>
+                                    <option value="quick">Quick Scan (5 repos per company)</option>
+                                    <option value="thorough">Thorough Scan (15 repos per company)</option>
+                                    <option value="comprehensive">Comprehensive Scan (25 repos per company)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priority-mode" class="form-label">Priority Mode</label>
+                                <select id="priority-mode" class="form-control">
+                                    <option value="critical-only">Critical PII Only</option>
+                                    <option value="high-and-above">High Severity & Above</option>
+                                    <option value="all-types">All PII Types</option>
                                 </select>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">PII Types to Detect</label>
-                            <div class="pii-types-grid">
-                                <label><input type="checkbox" value="critical" checked> Critical (SSN, Credit Cards, Keys)</label>
-                                <label><input type="checkbox" value="high" checked> High (API Keys, Passwords)</label>
-                                <label><input type="checkbox" value="medium" checked> Medium (Emails, Phone Numbers)</label>
-                                <label><input type="checkbox" value="low"> Low (IP Addresses)</label>
+                            <label class="form-label">Target PII Categories</label>
+                            <div class="pii-categories-grid">
+                                <label class="pii-category critical"><input type="checkbox" value="critical" checked> 
+                                    <span class="category-icon">🔴</span> Critical (Keys, SSN, Credit Cards)</label>
+                                <label class="pii-category high"><input type="checkbox" value="high" checked> 
+                                    <span class="category-icon">🟠</span> High (API Keys, Passwords)</label>
+                                <label class="pii-category medium"><input type="checkbox" value="medium" checked> 
+                                    <span class="category-icon">🟡</span> Medium (Emails, Phone Numbers)</label>
+                                <label class="pii-category low"><input type="checkbox" value="low"> 
+                                    <span class="category-icon">🟢</span> Low (IP Addresses)</label>
                             </div>
                         </div>
 
-                        <button id="start-discovery-btn" class="btn btn--primary">Start Discovery Scan</button>
+                        <button id="start-discovery-btn" class="btn btn--primary btn--lg">
+                            <span>🚀</span> Start Discovery Campaign
+                        </button>
                     </div>
                 </div>
 
                 <!-- Scan Progress -->
                 <div id="scan-progress" class="card hidden">
                     <div class="card__body">
-                        <h3>Scanning in Progress</h3>
+                        <div class="scan-header">
+                            <h3>Discovery Campaign in Progress</h3>
+                            <div class="scan-stats">
+                                <span id="scan-companies">0 companies</span> • 
+                                <span id="scan-repos">0 repositories</span> • 
+                                <span id="scan-files">0 files</span>
+                            </div>
+                        </div>
                         <div class="progress-container">
                             <div class="progress-bar">
                                 <div id="progress-fill" class="progress-fill"></div>
@@ -150,6 +185,80 @@
                                 <button id="pause-scan-btn" class="btn btn--secondary btn--sm">Pause</button>
                             </div>
                         </div>
+                        <div class="live-findings" id="live-findings">
+                            <div class="findings-counter">
+                                <span class="counter critical">0</span> Critical •
+                                <span class="counter high">0</span> High •
+                                <span class="counter medium">0</span> Medium •
+                                <span class="counter low">0</span> Low
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Companies Section -->
+            <section id="companies" class="content-section">
+                <div class="section-header">
+                    <h2>Company Intelligence Database</h2>
+                    <p class="section-description">Top 50 companies with pre-populated security intelligence</p>
+                </div>
+
+                <!-- Company Filters -->
+                <div class="card">
+                    <div class="card__body">
+                        <div class="company-filters">
+                            <div class="filter-row">
+                                <div class="filter-group">
+                                    <label class="form-label">Search Companies</label>
+                                    <input type="text" id="company-search" class="form-control" placeholder="Search by name, domain, or industry...">
+                                </div>
+                                <div class="filter-group">
+                                    <label class="form-label">Industry</label>
+                                    <select id="industry-filter" class="form-control">
+                                        <option value="">All Industries</option>
+                                        <option value="Technology">Technology</option>
+                                        <option value="Social Media">Social Media</option>
+                                        <option value="E-commerce/Cloud">E-commerce/Cloud</option>
+                                        <option value="Automotive/Energy">Automotive/Energy</option>
+                                        <option value="Entertainment/Streaming">Entertainment/Streaming</option>
+                                        <option value="Transportation/Technology">Transportation/Technology</option>
+                                        <option value="Hospitality/Technology">Hospitality/Technology</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label class="form-label">Bug Bounty</label>
+                                    <select id="bounty-filter" class="form-control">
+                                        <option value="">All Programs</option>
+                                        <option value="true">Has Bug Bounty</option>
+                                        <option value="false">No Bug Bounty</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label class="form-label">Response Time</label>
+                                    <select id="response-filter" class="form-control">
+                                        <option value="">All Response Times</option>
+                                        <option value="24-48 hours">24-48 hours</option>
+                                        <option value="24-72 hours">24-72 hours</option>
+                                        <option value="48-96 hours">48-96 hours</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Grid -->
+                <div class="company-results">
+                    <div class="results-header">
+                        <span id="company-count">50 companies</span>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid">Grid</button>
+                            <button class="view-btn" data-view="list">List</button>
+                        </div>
+                    </div>
+                    <div id="companies-container" class="companies-grid">
+                        <!-- Companies will be populated here -->
                     </div>
                 </div>
             </section>
@@ -158,7 +267,41 @@
             <section id="findings" class="content-section">
                 <div class="section-header">
                     <h2>Finding Management</h2>
-                    <p class="section-description">Review, assess, and manage discovered PII exposures</p>
+                    <p class="section-description">Review, prioritize, and manage discovered security findings</p>
+                </div>
+
+                <!-- Findings Analytics -->
+                <div class="findings-analytics">
+                    <div class="analytics-cards">
+                        <div class="analytics-card critical">
+                            <div class="card-header">
+                                <span class="severity-badge critical">Critical</span>
+                                <span class="count" id="critical-count">0</span>
+                            </div>
+                            <div class="card-footer">Immediate action required</div>
+                        </div>
+                        <div class="analytics-card high">
+                            <div class="card-header">
+                                <span class="severity-badge high">High</span>
+                                <span class="count" id="high-count">0</span>
+                            </div>
+                            <div class="card-footer">Urgent attention needed</div>
+                        </div>
+                        <div class="analytics-card medium">
+                            <div class="card-header">
+                                <span class="severity-badge medium">Medium</span>
+                                <span class="count" id="medium-count">0</span>
+                            </div>
+                            <div class="card-footer">Should be addressed</div>
+                        </div>
+                        <div class="analytics-card low">
+                            <div class="card-header">
+                                <span class="severity-badge low">Low</span>
+                                <span class="count" id="low-count">0</span>
+                            </div>
+                            <div class="card-footer">Low priority items</div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Findings Filter -->
@@ -182,8 +325,9 @@
                         </select>
                     </div>
                     <div class="filter-group">
-                        <input type="text" id="org-filter" class="form-control" placeholder="Filter by organization...">
+                        <input type="text" id="company-filter" class="form-control" placeholder="Filter by company...">
                     </div>
+                    <button id="export-findings-btn" class="btn btn--outline">Export Findings</button>
                 </div>
 
                 <!-- Findings List -->
@@ -191,40 +335,17 @@
                     <div class="empty-state">
                         <div class="empty-icon">🔍</div>
                         <h3>No Findings Yet</h3>
-                        <p>Start a discovery scan to find PII exposures in public repositories</p>
-                        <button class="btn btn--primary" onclick="showSection('discovery')">Start Discovery</button>
+                        <p>Start a discovery campaign to find PII exposures across company repositories</p>
+                        <button class="btn btn--primary" onclick="window.app.showSection('discovery')">Start Discovery Campaign</button>
                     </div>
-                </div>
-            </section>
-
-            <!-- Organizations Section -->
-            <section id="organizations" class="content-section">
-                <div class="section-header">
-                    <h2>Organization Database</h2>
-                    <p class="section-description">Manage organization profiles and security contact information</p>
-                </div>
-
-                <!-- Organization Search -->
-                <div class="card">
-                    <div class="card__body">
-                        <div class="org-search-bar">
-                            <input type="text" id="org-search-input" class="form-control" placeholder="Search organizations or add new...">
-                            <button id="add-org-btn" class="btn btn--primary">Add Organization</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Organizations Grid -->
-                <div id="organizations-grid" class="organizations-grid">
-                    <!-- Organizations will be populated here -->
                 </div>
             </section>
 
             <!-- Reports Section -->
             <section id="reports" class="content-section">
                 <div class="section-header">
-                    <h2>Report Generation</h2>
-                    <p class="section-description">Generate professional disclosure reports using proven templates</p>
+                    <h2>Professional Report Generation</h2>
+                    <p class="section-description">Generate customized reports with company-specific templates</p>
                 </div>
 
                 <!-- Report Template Selection -->
@@ -233,31 +354,44 @@
                         <h3>Select Report Template</h3>
                         <div class="template-grid">
                             <div class="template-card" data-template="initial_disclosure">
+                                <div class="template-icon">📋</div>
                                 <h4>Initial Disclosure</h4>
-                                <p>Professional vulnerability disclosure report for first contact</p>
+                                <p>Professional vulnerability disclosure for first contact with security teams</p>
                                 <div class="template-features">
                                     <span>Executive Summary</span>
                                     <span>Technical Details</span>
                                     <span>Impact Assessment</span>
-                                    <span>Timeline</span>
+                                    <span>90-Day Timeline</span>
                                 </div>
                             </div>
                             <div class="template-card" data-template="followup_reminder">
+                                <div class="template-icon">📨</div>
                                 <h4>Follow-up Reminder</h4>
-                                <p>Professional reminder for pending vulnerability reports</p>
+                                <p>Professional reminder for pending vulnerability disclosures</p>
                                 <div class="template-features">
-                                    <span>Reference ID</span>
-                                    <span>Timeline Update</span>
-                                    <span>Next Steps</span>
+                                    <span>Reference Tracking</span>
+                                    <span>Timeline Status</span>
+                                    <span>Escalation Path</span>
+                                </div>
+                            </div>
+                            <div class="template-card" data-template="bulk_report">
+                                <div class="template-icon">📊</div>
+                                <h4>Campaign Summary</h4>
+                                <p>Comprehensive report covering multiple companies and findings</p>
+                                <div class="template-features">
+                                    <span>Multi-Company</span>
+                                    <span>Executive Dashboard</span>
+                                    <span>Risk Metrics</span>
                                 </div>
                             </div>
                             <div class="template-card" data-template="public_disclosure">
-                                <h4>Public Disclosure</h4>
-                                <p>Public security advisory after disclosure timeline</p>
+                                <div class="template-icon">🔓</div>
+                                <h4>Public Advisory</h4>
+                                <p>Public security advisory after responsible disclosure timeline</p>
                                 <div class="template-features">
-                                    <span>Advisory ID</span>
+                                    <span>CVE Format</span>
                                     <span>Vendor Response</span>
-                                    <span>Mitigation</span>
+                                    <span>Timeline History</span>
                                 </div>
                             </div>
                         </div>
@@ -270,7 +404,7 @@
                         <div class="report-header">
                             <h3>Report Preview</h3>
                             <div class="report-actions">
-                                <button id="edit-report-btn" class="btn btn--outline btn--sm">Edit</button>
+                                <button id="customize-report-btn" class="btn btn--outline btn--sm">Customize</button>
                                 <button id="download-report-btn" class="btn btn--primary btn--sm">Download</button>
                             </div>
                         </div>
@@ -282,8 +416,8 @@
             <!-- Timeline Section -->
             <section id="timeline" class="content-section">
                 <div class="section-header">
-                    <h2>Disclosure Timeline</h2>
-                    <p class="section-description">Track responsible disclosure timelines and manage communications</p>
+                    <h2>Disclosure Timeline Management</h2>
+                    <p class="section-description">Track responsible disclosure progress across all active cases</p>
                 </div>
 
                 <!-- Timeline Overview -->
@@ -312,19 +446,19 @@
                     <div class="timeline-stage" data-stage="90">
                         <div class="stage-number">4</div>
                         <div class="stage-info">
-                            <div class="stage-title">Public Disclosure</div>
+                            <div class="stage-title">Public Consideration</div>
                             <div class="stage-time">Day 90</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Active Disclosures -->
-                <div id="active-timeline-list" class="timeline-list">
+                <div id="timeline-list" class="timeline-list">
                     <div class="empty-state">
                         <div class="empty-icon">⏱️</div>
                         <h3>No Active Disclosures</h3>
-                        <p>Create findings and start the responsible disclosure process</p>
-                        <button class="btn btn--primary" onclick="showSection('findings')">Manage Findings</button>
+                        <p>Start disclosure processes from your findings to track them here</p>
+                        <button class="btn btn--primary" onclick="window.app.showSection('findings')">View Findings</button>
                     </div>
                 </div>
             </section>
@@ -332,6 +466,24 @@
     </div>
 
     <!-- Modals -->
+    <!-- Company Details Modal -->
+    <div id="company-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="company-modal-title">Company Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="company-modal-body">
+                <!-- Company details will be populated here -->
+            </div>
+            <div class="modal-footer">
+                <button id="select-company-btn" class="btn btn--primary">Select for Scan</button>
+                <button class="btn btn--outline modal-close">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Finding Details Modal -->
     <div id="finding-modal" class="modal hidden">
         <div class="modal-overlay"></div>
@@ -350,46 +502,22 @@
         </div>
     </div>
 
-    <!-- Organization Modal -->
-    <div id="org-modal" class="modal hidden">
+    <!-- Company Selection Modal -->
+    <div id="company-selection-modal" class="modal hidden">
         <div class="modal-overlay"></div>
-        <div class="modal-content">
+        <div class="modal-content modal-large">
             <div class="modal-header">
-                <h3 id="org-modal-title">Add Organization</h3>
+                <h3>Select Companies for Scan</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
-                <form id="org-form">
-                    <div class="form-group">
-                        <label class="form-label">Organization Name</label>
-                        <input type="text" id="org-name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Domain</label>
-                        <input type="text" id="org-domain" class="form-control" placeholder="example.com">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">GitHub Organization</label>
-                        <input type="text" id="org-github" class="form-control" placeholder="github-username">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Security Contact</label>
-                        <input type="email" id="org-security-email" class="form-control" placeholder="security@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Bug Bounty Program</label>
-                        <select id="org-bug-bounty" class="form-control">
-                            <option value="unknown">Unknown</option>
-                            <option value="hackerone">HackerOne</option>
-                            <option value="bugcrowd">Bugcrowd</option>
-                            <option value="private">Private Program</option>
-                            <option value="none">No Program</option>
-                        </select>
-                    </div>
-                </form>
+                <div class="company-selection-grid" id="company-selection-grid">
+                    <!-- Companies will be populated here -->
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" form="org-form" class="btn btn--primary">Save Organization</button>
+                <span class="selected-count">0 companies selected</span>
+                <button id="confirm-selection-btn" class="btn btn--primary">Confirm Selection</button>
                 <button class="btn btn--outline modal-close">Cancel</button>
             </div>
         </div>
