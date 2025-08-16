@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureDisclose - PII Exposure Discovery & Responsible Disclosure Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>🔒 SecureDisclose</h1>
+                <span class="nav-subtitle">Professional Security Research Platform</span>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-item active" data-section="dashboard">Dashboard</button>
+                <button class="nav-item" data-section="discovery">Discovery</button>
+                <button class="nav-item" data-section="findings">Findings</button>
+                <button class="nav-item" data-section="organizations">Organizations</button>
+                <button class="nav-item" data-section="reports">Reports</button>
+                <button class="nav-item" data-section="timeline">Timeline</button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="section-header">
+                    <h2>Research Dashboard</h2>
+                    <p class="section-description">Overview of your security research activities and responsible disclosure portfolio</p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🔍</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="total-findings">0</div>
+                            <div class="stat-label">Total Findings</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏢</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="active-disclosures">0</div>
+                            <div class="stat-label">Active Disclosures</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="resolved-issues">0</div>
+                            <div class="stat-label">Resolved Issues</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="avg-response-time">--</div>
+                            <div class="stat-label">Avg Response Time</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <h3>Findings by Severity</h3>
+                        <div style="position: relative; height: 300px;">
+                            <canvas id="severity-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Disclosure Timeline Progress</h3>
+                        <div style="position: relative; height: 300px;">
+                            <canvas id="timeline-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div id="activity-list" class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🔍</div>
+                            <div class="activity-content">
+                                <div class="activity-title">Platform ready for security research</div>
+                                <div class="activity-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Discovery Section -->
+            <section id="discovery" class="content-section">
+                <div class="section-header">
+                    <h2>PII Exposure Discovery</h2>
+                    <p class="section-description">Search for PII exposures in public repositories and document findings</p>
+                </div>
+
+                <!-- Search Controls -->
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Organization & Repository Discovery</h3>
+                        <div class="search-grid">
+                            <div class="form-group">
+                                <label for="org-search" class="form-label">Organization Name</label>
+                                <input type="text" id="org-search" class="form-control" placeholder="e.g., microsoft, google, facebook">
+                            </div>
+                            <div class="form-group">
+                                <label for="scan-depth" class="form-label">Scan Depth</label>
+                                <select id="scan-depth" class="form-control">
+                                    <option value="quick">Quick (5 repos, 10 files each)</option>
+                                    <option value="thorough">Thorough (10 repos, 20 files each)</option>
+                                    <option value="comprehensive">Comprehensive (25 repos, 50 files each)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">PII Types to Detect</label>
+                            <div class="pii-types-grid">
+                                <label><input type="checkbox" value="critical" checked> Critical (SSN, Credit Cards, Keys)</label>
+                                <label><input type="checkbox" value="high" checked> High (API Keys, Passwords)</label>
+                                <label><input type="checkbox" value="medium" checked> Medium (Emails, Phone Numbers)</label>
+                                <label><input type="checkbox" value="low"> Low (IP Addresses)</label>
+                            </div>
+                        </div>
+
+                        <button id="start-discovery-btn" class="btn btn--primary">Start Discovery Scan</button>
+                    </div>
+                </div>
+
+                <!-- Scan Progress -->
+                <div id="scan-progress" class="card hidden">
+                    <div class="card__body">
+                        <h3>Scanning in Progress</h3>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div id="progress-fill" class="progress-fill"></div>
+                            </div>
+                            <div class="progress-info">
+                                <span id="progress-text">Initializing scan...</span>
+                                <button id="pause-scan-btn" class="btn btn--secondary btn--sm">Pause</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Findings Section -->
+            <section id="findings" class="content-section">
+                <div class="section-header">
+                    <h2>Finding Management</h2>
+                    <p class="section-description">Review, assess, and manage discovered PII exposures</p>
+                </div>
+
+                <!-- Findings Filter -->
+                <div class="findings-filter">
+                    <div class="filter-group">
+                        <select id="severity-filter" class="form-control">
+                            <option value="">All Severities</option>
+                            <option value="critical">Critical</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select id="status-filter" class="form-control">
+                            <option value="">All Status</option>
+                            <option value="new">New</option>
+                            <option value="disclosed">Disclosed</option>
+                            <option value="acknowledged">Acknowledged</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <input type="text" id="org-filter" class="form-control" placeholder="Filter by organization...">
+                    </div>
+                </div>
+
+                <!-- Findings List -->
+                <div id="findings-list" class="findings-container">
+                    <div class="empty-state">
+                        <div class="empty-icon">🔍</div>
+                        <h3>No Findings Yet</h3>
+                        <p>Start a discovery scan to find PII exposures in public repositories</p>
+                        <button class="btn btn--primary" onclick="showSection('discovery')">Start Discovery</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Organizations Section -->
+            <section id="organizations" class="content-section">
+                <div class="section-header">
+                    <h2>Organization Database</h2>
+                    <p class="section-description">Manage organization profiles and security contact information</p>
+                </div>
+
+                <!-- Organization Search -->
+                <div class="card">
+                    <div class="card__body">
+                        <div class="org-search-bar">
+                            <input type="text" id="org-search-input" class="form-control" placeholder="Search organizations or add new...">
+                            <button id="add-org-btn" class="btn btn--primary">Add Organization</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Organizations Grid -->
+                <div id="organizations-grid" class="organizations-grid">
+                    <!-- Organizations will be populated here -->
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h2>Report Generation</h2>
+                    <p class="section-description">Generate professional disclosure reports using proven templates</p>
+                </div>
+
+                <!-- Report Template Selection -->
+                <div class="card">
+                    <div class="card__body">
+                        <h3>Select Report Template</h3>
+                        <div class="template-grid">
+                            <div class="template-card" data-template="initial_disclosure">
+                                <h4>Initial Disclosure</h4>
+                                <p>Professional vulnerability disclosure report for first contact</p>
+                                <div class="template-features">
+                                    <span>Executive Summary</span>
+                                    <span>Technical Details</span>
+                                    <span>Impact Assessment</span>
+                                    <span>Timeline</span>
+                                </div>
+                            </div>
+                            <div class="template-card" data-template="followup_reminder">
+                                <h4>Follow-up Reminder</h4>
+                                <p>Professional reminder for pending vulnerability reports</p>
+                                <div class="template-features">
+                                    <span>Reference ID</span>
+                                    <span>Timeline Update</span>
+                                    <span>Next Steps</span>
+                                </div>
+                            </div>
+                            <div class="template-card" data-template="public_disclosure">
+                                <h4>Public Disclosure</h4>
+                                <p>Public security advisory after disclosure timeline</p>
+                                <div class="template-features">
+                                    <span>Advisory ID</span>
+                                    <span>Vendor Response</span>
+                                    <span>Mitigation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Report Preview -->
+                <div id="report-preview" class="card hidden">
+                    <div class="card__body">
+                        <div class="report-header">
+                            <h3>Report Preview</h3>
+                            <div class="report-actions">
+                                <button id="edit-report-btn" class="btn btn--outline btn--sm">Edit</button>
+                                <button id="download-report-btn" class="btn btn--primary btn--sm">Download</button>
+                            </div>
+                        </div>
+                        <div id="report-content" class="report-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section id="timeline" class="content-section">
+                <div class="section-header">
+                    <h2>Disclosure Timeline</h2>
+                    <p class="section-description">Track responsible disclosure timelines and manage communications</p>
+                </div>
+
+                <!-- Timeline Overview -->
+                <div class="timeline-overview">
+                    <div class="timeline-stage" data-stage="0">
+                        <div class="stage-number">1</div>
+                        <div class="stage-info">
+                            <div class="stage-title">Initial Contact</div>
+                            <div class="stage-time">Day 0</div>
+                        </div>
+                    </div>
+                    <div class="timeline-stage" data-stage="30">
+                        <div class="stage-number">2</div>
+                        <div class="stage-info">
+                            <div class="stage-title">First Follow-up</div>
+                            <div class="stage-time">Day 30</div>
+                        </div>
+                    </div>
+                    <div class="timeline-stage" data-stage="60">
+                        <div class="stage-number">3</div>
+                        <div class="stage-info">
+                            <div class="stage-title">Escalation</div>
+                            <div class="stage-time">Day 60</div>
+                        </div>
+                    </div>
+                    <div class="timeline-stage" data-stage="90">
+                        <div class="stage-number">4</div>
+                        <div class="stage-info">
+                            <div class="stage-title">Public Disclosure</div>
+                            <div class="stage-time">Day 90</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Disclosures -->
+                <div id="active-timeline-list" class="timeline-list">
+                    <div class="empty-state">
+                        <div class="empty-icon">⏱️</div>
+                        <h3>No Active Disclosures</h3>
+                        <p>Create findings and start the responsible disclosure process</p>
+                        <button class="btn btn--primary" onclick="showSection('findings')">Manage Findings</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Finding Details Modal -->
+    <div id="finding-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Finding Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="finding-modal-body">
+                <!-- Finding details will be populated here -->
+            </div>
+            <div class="modal-footer">
+                <button id="start-disclosure-btn" class="btn btn--primary">Start Disclosure Process</button>
+                <button class="btn btn--outline modal-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Organization Modal -->
+    <div id="org-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="org-modal-title">Add Organization</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="org-form">
+                    <div class="form-group">
+                        <label class="form-label">Organization Name</label>
+                        <input type="text" id="org-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Domain</label>
+                        <input type="text" id="org-domain" class="form-control" placeholder="example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">GitHub Organization</label>
+                        <input type="text" id="org-github" class="form-control" placeholder="github-username">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Security Contact</label>
+                        <input type="email" id="org-security-email" class="form-control" placeholder="security@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Bug Bounty Program</label>
+                        <select id="org-bug-bounty" class="form-control">
+                            <option value="unknown">Unknown</option>
+                            <option value="hackerone">HackerOne</option>
+                            <option value="bugcrowd">Bugcrowd</option>
+                            <option value="private">Private Program</option>
+                            <option value="none">No Program</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="org-form" class="btn btn--primary">Save Organization</button>
+                <button class="btn btn--outline modal-close">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

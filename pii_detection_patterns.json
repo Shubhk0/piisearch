@@ -1,0 +1,75 @@
+{
+  "patterns": {
+    "email": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b",
+    "ssn": "\\b(?!000|666|9\\d{2})([0-8]\\d{2}|7([0-6]\\d|7[012]))([-\\s]?)\\d{2}\\3\\d{4}\\b",
+    "phone_us": "\\b(?:\\+?1[-\\s]?)?(?:\\([2-9]\\d{2}\\)|[2-9]\\d{2})[-\\s]?\\d{3}[-\\s]?\\d{4}\\b",
+    "credit_card": "\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12})\\b",
+    "api_key_generic": "\\b[A-Za-z0-9_-]{20,}\\b",
+    "aws_access_key": "AKIA[0-9A-Z]{16}",
+    "github_token": "ghp_[0-9a-zA-Z]{36}",
+    "github_oauth": "gho_[0-9a-zA-Z]{36}",
+    "private_key": "-----BEGIN (RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY",
+    "password_hardcoded": "(password|passwd|pwd)\\s*[:=]\\s*[\\'\"][^\\'\"\\\\s]{6,}[\\'\"]",
+    "database_url": "(mongodb|mysql|postgres|redis)://[^\\s]+",
+    "ipv4": "\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b",
+    "date_birth": "\\b(?:0[1-9]|1[0-2])[/-](?:0[1-9]|[12][0-9]|3[01])[/-](?:19|20)\\d{2}\\b",
+    "jwt_token": "eyJ[A-Za-z0-9_-]*\\.eyJ[A-Za-z0-9_-]*\\.[A-Za-z0-9_-]*",
+    "slack_token": "xox[baprs]-[0-9a-zA-Z]{10,48}",
+    "stripe_key": "sk_live_[0-9a-zA-Z]{24}",
+    "twilio_key": "SK[0-9a-fA-F]{32}",
+    "mailgun_key": "key-[0-9a-zA-Z]{32}",
+    "sendgrid_key": "SG\\.[0-9A-Za-z\\-_]{22}\\.[0-9A-Za-z\\-_]{43}"
+  },
+  "severity_levels": {
+    "ssn": "Critical",
+    "credit_card": "Critical",
+    "aws_access_key": "Critical",
+    "github_token": "Critical",
+    "github_oauth": "Critical",
+    "private_key": "Critical",
+    "jwt_token": "Critical",
+    "api_key_generic": "High",
+    "database_url": "High",
+    "password_hardcoded": "High",
+    "slack_token": "High",
+    "stripe_key": "High",
+    "twilio_key": "High",
+    "mailgun_key": "High",
+    "sendgrid_key": "High",
+    "email": "Medium",
+    "phone_us": "Medium",
+    "date_birth": "Medium",
+    "ipv4": "Low"
+  },
+  "priority_files": {
+    "critical": [
+      ".env",
+      ".config",
+      ".secret",
+      ".key"
+    ],
+    "high": [
+      ".json",
+      ".yaml",
+      ".yml",
+      ".properties",
+      ".ini"
+    ],
+    "medium": [
+      ".txt",
+      ".md",
+      ".sql",
+      ".log",
+      ".conf"
+    ],
+    "low": [
+      ".js",
+      ".ts",
+      ".py",
+      ".java",
+      ".php",
+      ".rb",
+      ".go"
+    ]
+  }
+}
